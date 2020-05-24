@@ -34,7 +34,8 @@ public class LineReaderTest {
     public void shouldSplitLineToCollectionOfCharacters(){
         String testLine = "abc";
 
-        List<Character> resultCollection = LineReader.split(testLine);
+        List<Character> resultCollection =
+                LineReader.split(testLine);
 
         assertThat(resultCollection,
                 is(equalTo(Arrays.asList('a', 'b', 'c'))));

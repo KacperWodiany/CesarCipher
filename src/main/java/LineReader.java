@@ -26,5 +26,4 @@ public class LineReader {
 
         return lineBuilder.toString();
     }
-
 }
