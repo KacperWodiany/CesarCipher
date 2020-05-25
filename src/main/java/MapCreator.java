@@ -11,6 +11,6 @@ public class MapCreator {
         Iterator<V> valueIterator = values.iterator();
 
         return IntStream.range(0, keys.size()).boxed()
-                .collect(Collectors.toMap(_i -> keyIterator.next(), _i -> valueIterator.next()));
+                .collect(Collectors.toMap(i -> keyIterator.next(), i -> valueIterator.next()));
     }
 }

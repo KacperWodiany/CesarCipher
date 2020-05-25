@@ -4,11 +4,12 @@ import java.util.List;
 
 public class Shifter {
 
-    public static <T> List<T> getShiftedList(List<T> originalList, int shift) {
-        List<T> shiftedList = new ArrayList<>(originalList);
+    public static <T> List<T> shift(List<T> list, int shift) {
+        List<T> shiftedList = new ArrayList<>(list);
 
-        Collections.rotate(shiftedList,
-                adjust(shift, originalList.size()));
+        Collections
+                .rotate(shiftedList,
+                        adjust(shift, list.size()));
 
         return shiftedList;
     }

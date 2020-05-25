@@ -15,7 +15,6 @@ public class CodingDictionaryTest {
     private static final char LAST_CHARACTER = 'C';
     private static final int SHIFT_ONE = 1;
     private static final int SHIFT_MINUS_ONE = -1;
-    private static final int SHIFT_ZERO = 0;
 
     @Test
     public void setABCShouldContainA(){

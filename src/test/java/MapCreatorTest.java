@@ -1,3 +1,4 @@
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -11,18 +12,34 @@ import static org.junit.Assert.*;
 
 public class MapCreatorTest {
 
-    // TODO: Write tests using generics
+    private static Object keyOne;
+    private static Object keyTwo;
+    private static List<Object> keys;
+
+    private static Object valueOne;
+    private static Object valueTwo;
+    private static List<Object> values;
+
+    @BeforeClass
+    public static void beforeClass(){
+        keyOne = new Object();
+        keyTwo = new Object();
+        keys = Arrays.asList(keyOne,keyTwo);
+
+        valueOne = new Object();
+        valueTwo = new Object();
+        values = Arrays.asList(valueOne, valueTwo);
+    }
 
     @Test
-    public void zipToMap() {
-        final List<Integer> keys = Arrays.asList(1,2);
-        final List<Character> values = Arrays.asList('a', 'b');
-        final Map<Integer, Character> correctResultMap = new HashMap<>();
-        correctResultMap.put(1, 'a');
-        correctResultMap.put(2, 'b');
+    public void shouldHandleZippingListOfObjects() {
+        Map<Object, Object> resultMap = MapCreator.zipToMap(keys, values);
 
-        Map<Integer, Character> resultMap = MapCreator.zipToMap(keys, values);
-
+        final Map<Object, Object> correctResultMap = new HashMap<>();
+        correctResultMap.put(keyOne, valueOne);
+        correctResultMap.put(keyTwo, valueTwo);
         assertThat(resultMap, is(equalTo(correctResultMap)));
     }
+
+
 }

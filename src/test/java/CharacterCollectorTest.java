@@ -10,13 +10,13 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 
 
-public class LineReaderTest {
+public class CharacterCollectorTest {
 
     @Test
     public void shouldReturnSentenceInUpperCase() {
         String testLine = "TestLine";
 
-        String resultLine = LineReader.prepare(testLine);
+        String resultLine = CharacterCollector.prepare(testLine);
 
         assertThat(resultLine, is(equalTo("TESTLINE")));
     }
@@ -25,7 +25,7 @@ public class LineReaderTest {
     public void shouldRemoveLeadingAndTrailingWhitespaces(){
         String testLine = "    TESTLINE    ";
 
-        String resultLine = LineReader.prepare(testLine);
+        String resultLine = CharacterCollector.prepare(testLine);
 
         assertThat(resultLine, is(equalTo("TESTLINE")));
     }
@@ -35,7 +35,7 @@ public class LineReaderTest {
         String testLine = "abc";
 
         List<Character> resultCollection =
-                LineReader.split(testLine);
+                CharacterCollector.split(testLine);
 
         assertThat(resultCollection,
                 is(equalTo(Arrays.asList('a', 'b', 'c'))));
@@ -46,7 +46,7 @@ public class LineReaderTest {
         List<Character> testCharacters =
                 new ArrayList<>(Arrays.asList('a', 'b', 'c'));
 
-        String resultLine = LineReader.merge(testCharacters);
+        String resultLine = CharacterCollector.merge(testCharacters);
 
         assertThat(resultLine, is(equalTo("abc")));
     }

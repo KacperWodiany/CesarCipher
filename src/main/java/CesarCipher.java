@@ -1,11 +1,18 @@
 public class CesarCipher {
 
     public static void main(String[] args){
-        String line = "Hello World!";
-//        CodingDictionary codingDictionary = new CodingDictionary('A', 'Z');
-//        Encoder cesarEncoder = new Encoder(codingDictionary);
-//        String encodedLine = cesarEncoder.encode(line);
-//        System.out.println(encodedLine);
-        System.out.println((-3)% 2);
+        final String line = "Hello world!";
+        System.out.println("Original: " + line);
+
+        final CodingDictionary dict = new CodingDictionary();
+        final int shift = 3;
+
+        final Encoder encoder = new Encoder(dict, shift);
+        final String encodedLine = encoder.code(line);
+        System.out.println("Encoded: " + encodedLine);
+
+        final Decoder decoder = new Decoder(dict, shift);
+        final String decodedLine = decoder.code(encodedLine);
+        System.out.println("Decoded: " + decodedLine);
     }
 }

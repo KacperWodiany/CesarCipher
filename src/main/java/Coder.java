@@ -21,17 +21,16 @@ public abstract class Coder {
     }
 
     public String code(String line){
-        String preparedLine = LineReader.prepare(line);
-        List<Character> originalCharacters =
-                LineReader.split(preparedLine);
+        List<Character> characters =
+                CharacterCollector.format(line);
 
         List<Character> encodedCharacters = new ArrayList<>();
 
-        for(Character character : originalCharacters){
+        for(Character character : characters){
             encodedCharacters
                     .add(code(character));
         }
 
-        return LineReader.merge(encodedCharacters);
+        return CharacterCollector.merge(encodedCharacters);
     }
 }
