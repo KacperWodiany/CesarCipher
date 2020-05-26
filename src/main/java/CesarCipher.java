@@ -7,11 +7,11 @@ public class CesarCipher {
         final CodingDictionary dict = new CodingDictionary();
         final int shift = 3;
 
-        final Encoder encoder = new Encoder(dict, shift);
+        final Coder encoder = new Encoder(dict, shift);
         final String encodedLine = encoder.code(line);
         System.out.println("Encoded: " + encodedLine);
 
-        final Decoder decoder = new Decoder(dict, shift);
+        final Coder decoder = new Decoder(dict, shift);
         final String decodedLine = decoder.code(encodedLine);
         System.out.println("Decoded: " + decodedLine);
     }

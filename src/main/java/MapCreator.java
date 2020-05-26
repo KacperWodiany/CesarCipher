@@ -9,7 +9,6 @@ public class MapCreator {
     public static <K,V> Map<K, V> zipToMap(List<K> keys, List<V> values){
         Iterator<K> keyIterator = keys.iterator();
         Iterator<V> valueIterator = values.iterator();
-
         return IntStream.range(0, keys.size()).boxed()
                 .collect(Collectors.toMap(i -> keyIterator.next(), i -> valueIterator.next()));
     }

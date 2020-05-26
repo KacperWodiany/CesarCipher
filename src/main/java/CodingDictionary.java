@@ -10,7 +10,6 @@ public class CodingDictionary {
 
     public CodingDictionary(char firstCharacter, char lastCharacter) {
         char currentCharacter = firstCharacter;
-
         while(currentCharacter <= lastCharacter){
             content.add(currentCharacter++);
         }
@@ -18,7 +17,6 @@ public class CodingDictionary {
 
     public CodingDictionary() {
         char currentCharacter = DEFAULT_FIRST_CHAR;
-
         while(currentCharacter <= DEFAULT_LAST_CHAR){
             content.add(currentCharacter++);
         }

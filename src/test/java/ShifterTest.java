@@ -13,20 +13,10 @@ public class ShifterTest {
     private final static int SHIFT_ONE = 1;
     private final static int SHIFT_MINUS_ONE = -1;
     private static List<Integer> collection;
-    private static Object objectOne;
-    private static Object objectTwo;
-    private static Object objectThree;
-    private static List<Object> objects;
 
     @BeforeClass
     public static void beforeClass(){
         collection = Arrays.asList(1, 2, 3);
-
-        objectOne = new Object();
-        objectTwo = new Object();
-        objectThree = new Object();
-        objects =
-                Arrays.asList(objectOne, objectTwo, objectThree);
     }
 
     @Test
@@ -44,21 +34,4 @@ public class ShifterTest {
 
         assertThat(shiftedCollection, is(equalTo(Arrays.asList(2, 3, 1))));
     }
-
-    @Test
-    public void shouldHandleShiftToTheRightForListOfObjects(){
-        List<Object> shiftedObjects =
-                Shifter.shift(objects, SHIFT_ONE);
-
-        assertThat(shiftedObjects, is(equalTo(Arrays.asList(objectThree, objectOne, objectTwo))));
-    }
-
-    @Test
-    public void shouldHandleShiftToTheLeftForListOfObjects(){
-        List<Object> shiftedObjects =
-                Shifter.shift(objects, SHIFT_MINUS_ONE);
-
-        assertThat(shiftedObjects, is(equalTo(Arrays.asList(objectTwo, objectThree, objectOne))));
-    }
-
 }
